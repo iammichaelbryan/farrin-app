@@ -1,0 +1,61 @@
+{
+  "enum_mappings": {
+    "season": {
+      "SPRING": "Spring",
+      "SUMMER": "Summer", 
+      "AUTUMN": "Autumn",
+      "WINTER": "Winter"
+    },
+    "gender": {
+      "MALE": "Male",
+      "FEMALE": "Female",
+      "OTHER": "Male"
+    },
+    "accommodation": {
+      "HOTEL": "Hotel",
+      "LODGE": "Lodge", 
+      "AIRBNB": "Airbnb",
+      "RESORT": "Resort",
+      "APARTMENT": "Apartment",
+      "HOSTEL": "Hostel"
+    },
+    "transport": {
+      "FLIGHTS": "Flight",
+      "FLIGHT": "Flight",
+      "TRAIN": "Train",
+      "CAR": "Car",
+      "BUS": "Bus"
+    }
+  },
+  "nationality_mappings": {
+    "United States": "American",
+    "United Kingdom": "British",
+    "Canada": "Canadian",
+    "Australia": "Australian",
+    "Germany": "German",
+    "France": "French",
+    "Italy": "Italian",
+    "Spain": "Spanish",
+    "Netherlands": "Dutch",
+    "Japan": "Japanese",
+    "South Korea": "Korean",
+    "China": "Chinese",
+    "India": "Indian",
+    "Brazil": "Brazilian",
+    "Mexico": "Mexican",
+    "Thailand": "Thai",
+    "Indonesia": "Indonesian",
+    "New Zealand": "New Zealander",
+    "South Africa": "South African",
+    "Morocco": "Moroccan",
+    "United Arab Emirates": "Emirati",
+    "Greece": "Greek"
+  },
+  "default_values": {
+    "season": "Summer",
+    "duration": 7,
+    "accommodation_cost": 1200,
+    "transportation_cost": 800,
+    "nationality": "American"
+  }
+}

@@ -1,0 +1,74 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: farrin-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: new_password
+      MYSQL_DATABASE: farrin
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/init:/docker-entrypoint-initdb.d
+    networks:
+      - farrin-network
+    restart: unless-stopped
+
+  ml-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.ml
+    container_name: farrin-ml-service
+    ports:
+      - "5000:5001"
+    volumes:
+      - ./src/main/python:/app
+    networks:
+      - farrin-network
+    restart: unless-stopped
+    environment:
+      FLASK_ENV: production
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: farrin-backend
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/farrin
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: new_password
+      FARRIN_ML_SERVICE_URL: http://ml-service:5001
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mysql
+      - ml-service
+    networks:
+      - farrin-network
+    restart: unless-stopped
+    volumes:
+      - ./logs:/app/logs
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: farrin-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      VITE_API_BASE_URL: http://localhost:8081
+    depends_on:
+      - backend
+    networks:
+      - farrin-network
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
+
+networks:
+  farrin-network:
+    driver: bridge

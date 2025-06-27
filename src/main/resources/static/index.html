@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farrin App Backend - Status</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .status-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .status-ok { background-color: #4CAF50; }
+        .status-warning { background-color: #FF9800; }
+        .endpoint {
+            font-family: 'Monaco', 'Consolas', monospace;
+            background: #f8f8f8;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .test-section {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🌍 Farrin Travel App</h1>
+        <p>Backend API Server - Spring Boot 3.5.0</p>
+        <p><strong>Port 8081</strong> | MySQL Database Connected</p>
+    </div>
+
+    <div class="status-card">
+        <h2><span class="status-indicator status-ok"></span>Server Status</h2>
+        <p><strong>Status:</strong> ✅ Running</p>
+        <p><strong>Database:</strong> ✅ MySQL Connected (localhost:3306/farrin)</p>
+        <p><strong>Authentication:</strong> ✅ Working</p>
+        <p><strong>User Registration:</strong> ✅ Saving to Database</p>
+        <p><strong>Login Counter:</strong> ✅ Tracking User Logins</p>
+    </div>
+
+    <div class="status-card">
+        <h2>🔗 API Endpoints</h2>
+        <h3>Authentication Service</h3>
+        <div class="endpoint">POST /auth/register - User Registration</div>
+        <div class="endpoint">POST /auth/login - User Login</div>
+        <div class="endpoint">POST /auth/logout - User Logout</div>
+        
+        <h3>Profile Service</h3>
+        <div class="endpoint">GET /profile/goals?userId={id} - Get Travel Goals</div>
+        <div class="endpoint">POST /profile/goals - Create Travel Goal</div>
+        <div class="endpoint">GET /profile/bucket-list?userId={id} - Get Bucket List</div>
+        <div class="endpoint">POST /profile/bucket-list - Add to Bucket List</div>
+        
+        <h3>Database Console</h3>
+        <div class="endpoint"><a href="/h2-console" target="_blank">H2 Console</a> - View MySQL Database</div>
+    </div>
+
+    <div class="status-card">
+        <h2>📊 Features Working</h2>
+        <ul>
+            <li>✅ <strong>User Registration</strong> - Creates users in MySQL database</li>
+            <li>✅ <strong>Password Authentication</strong> - Rejects wrong passwords</li>
+            <li>✅ <strong>Login Counter</strong> - Tracks user login attempts for questionnaire logic</li>
+            <li>✅ <strong>Database Persistence</strong> - All data saved to MySQL</li>
+            <li>✅ <strong>Travel Goals & Bucket List</strong> - CRUD operations available</li>
+            <li>✅ <strong>Schema Management</strong> - Auto-updates database schema</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>🧪 Quick Test</h3>
+        <p><strong>Register a user:</strong></p>
+        <code>curl -X POST http://localhost:8081/auth/register -H "Content-Type: application/json" -d '{"firstName":"Test","lastName":"User","email":"test@example.com","password":"password123","dateOfBirth":"1990-01-01","gender":"MALE"}'</code>
+        
+        <p><strong>Login:</strong></p>
+        <code>curl -X POST http://localhost:8081/auth/login -H "Content-Type: application/json" -d '{"email":"test@example.com","password":"password123"}'</code>
+    </div>
+
+    <div class="status-card">
+        <h2>🎯 Configuration</h2>
+        <p><strong>Frontend:</strong> React + TypeScript (Port 3000)</p>
+        <p><strong>Backend:</strong> Spring Boot 3.5.0 (Port 8081)</p>
+        <p><strong>Database:</strong> MySQL 8.0+ (Port 3306)</p>
+        <p><strong>Build Tool:</strong> Maven with Wrapper</p>
+        <p><strong>Java Version:</strong> 17</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+backend.log
+startup.log
+build.log
+
+# Build artifacts
+target/
+node_modules/
+dist/
+build/
+
+# Database files
+*.sql
+*.db
+
+# Documentation
+*.md
+*.pdf
+
+# Git
+.git/
+.gitignore
+
+# Temporary files
+*.tmp
+*.temp
+
+# Test files
+test_validation.md

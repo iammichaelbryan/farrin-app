@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./mvnw clean:*)",
+      "Bash(chmod:*)",
+      "Bash(mkdir:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(npm run build:*)",
+      "Bash(cp:*)",
+      "Bash(docker-compose down:*)"
+    ],
+    "deny": []
+  }
+}

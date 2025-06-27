@@ -1,0 +1,30 @@
+# Core ML and Data Processing
+numpy==2.3.0
+pandas==2.3.0
+scikit-learn==1.7.0
+scipy==1.15.3
+xgboost==3.0.2
+joblib==1.5.1
+
+# Model explainability and analysis
+shap==0.42.1
+matplotlib==3.10.3
+seaborn==0.13.2
+
+# Imbalanced learning (for model loading compatibility)
+imbalanced-learn==0.12.4
+
+# Web service dependencies
+Flask==3.0.3
+Flask-CORS==5.0.0
+
+# Utility libraries
+python-dateutil==2.9.0.post0
+pytz==2025.2
+
+# Optional: for enhanced plotting and visualization
+plotly==5.17.0
+
+# Development dependencies (optional)
+pytest==8.3.4
+requests==2.32.3

@@ -1,0 +1,26 @@
+ Quick Start:
+
+  Step 1: Start Your API
+
+  cd "/Users/kaelacalvert/Downloads/TravelAIModel/Travel AI Model"
+  python flask_api_example.py
+
+  Step 2: Test It
+
+  python test_api.py
+
+  Step 3: Test with Your Data
+
+  curl -X POST http://localhost:5002/recommendations \
+    -H "Content-Type: application/json" \
+    -d '{
+      "Traveler DOB": "10/08/1996",
+      "Season": "Summer", 
+      "Duration (days)": 7,
+      "Traveler gender": "Female",
+      "Traveler nationality": "American",
+      "Accommodation type": "Hotel",
+      "Accommodation cost": 1200,
+      "Transportation type": "Flight",
+      "Transportation cost": 800
+    }'

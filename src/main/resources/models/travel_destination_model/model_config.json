@@ -1,0 +1,90 @@
+{
+  "model_name": "travel_destination_recommender",
+  "version": "1.0",
+  "description": "AI model for personalized travel destination recommendations",
+  "input_features": [
+    {
+      "name": "Traveler DOB",
+      "type": "string",
+      "format": "MM/DD/YYYY",
+      "description": "Traveler's date of birth for age-based recommendations",
+      "source": "User.dob"
+    },
+    {
+      "name": "Season",
+      "type": "string",
+      "enum": ["Spring", "Summer", "Autumn", "Winter"],
+      "description": "Preferred travel season",
+      "source": "Preference.preferredTravelSeason"
+    },
+    {
+      "name": "Duration (days)",
+      "type": "number",
+      "min": 1,
+      "max": 365,
+      "description": "Total number of days for the trip",
+      "source": "Preference.avgTravelDuration"
+    },
+    {
+      "name": "Traveler gender",
+      "type": "string",
+      "enum": ["Female", "Male"],
+      "description": "Traveler's gender",
+      "source": "User.gender"
+    },
+    {
+      "name": "Traveler nationality",
+      "type": "string",
+      "description": "Traveler's nationality from citizenships",
+      "source": "User.citizenships"
+    },
+    {
+      "name": "Accommodation type",
+      "type": "string",
+      "enum": ["Hotel", "Lodge", "AirBnb"],
+      "description": "Preferred type of lodging",
+      "source": "Preference.preferredAccommodation"
+    },
+    {
+      "name": "Accommodation cost",
+      "type": "number",
+      "min": 0,
+      "description": "Estimated cost for accommodation",
+      "source": "Preference.accommodationBudget"
+    },
+    {
+      "name": "Transportation type",
+      "type": "string",
+      "enum": ["Flight"],
+      "description": "Preferred mode of transport",
+      "source": "Preference.transportPreference"
+    },
+    {
+      "name": "Transportation cost",
+      "type": "number",
+      "min": 0,
+      "description": "Estimated cost for transportation",
+      "source": "Preference.transportationBudget"
+    },
+    {
+      "name": "generate_cf_for",
+      "type": "string",
+      "description": "Target destination for recommendation explanation",
+      "source": "recommendation_target"
+    }
+  ],
+  "output_format": {
+    "type": "DestinationResponseDTO",
+    "description": "Recommended destinations with metadata"
+  },
+  "endpoints": {
+    "prediction": "/api/model/predict",
+    "health": "/api/model/health"
+  },
+  "destinations": [
+    "Amsterdam", "Athens", "Auckland", "Bali", "Bangkok", "Barcelona", 
+    "Berlin", "Cancun", "Cape Town", "Dubai", "Edinburgh", "Honolulu",
+    "London", "Los Angeles", "Marrakech", "New York", "Paris", "Phuket",
+    "Rio de Janeiro", "Rome", "Seoul", "Sydney", "Tokyo", "Vancouver"
+  ]
+}
